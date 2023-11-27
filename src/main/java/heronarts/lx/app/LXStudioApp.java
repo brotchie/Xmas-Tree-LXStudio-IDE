@@ -19,11 +19,17 @@
 package heronarts.lx.app;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+import com.github.brotchie.StarpusherOutput;
 import heronarts.lx.LX;
 import heronarts.lx.LXComponent;
 import heronarts.lx.LXPlugin;
+import heronarts.lx.LXRegistry;
 import heronarts.lx.osc.LXOscComponent;
 import heronarts.lx.parameter.BoundedParameter;
+import heronarts.lx.structure.JsonFixture;
 import heronarts.lx.studio.LXStudio;
 import heronarts.p4lx.ui.component.UICollapsibleSection;
 import heronarts.p4lx.ui.component.UIKnob;
@@ -107,14 +113,14 @@ public class LXStudioApp extends PApplet implements LXPlugin {
     // available.
 
     // Register custom pattern and effect types
-    lx.registry.addPattern(heronarts.lx.app.pattern.AppPattern.class);
-    lx.registry.addPattern(heronarts.lx.app.pattern.AppPatternWithUI.class);
-    lx.registry.addEffect(heronarts.lx.app.effect.AppEffect.class);
+    //lx.registry.addPattern(heronarts.lx.app.pattern.AppPattern.class);
+    //lx.registry.addPattern(heronarts.lx.app.pattern.AppPatternWithUI.class);
+    //lx.registry.addEffect(heronarts.lx.app.effect.AppEffect.class);
 
     // Create an instance of your global component and register it with the LX engine
     // so that it can be saved and loaded in project files
-    this.myComponent = new MyComponent(lx);
-    lx.engine.registerComponent("myComponent", this.myComponent);
+    //this.myComponent = new MyComponent(lx);
+    //lx.engine.registerComponent("myComponent", this.myComponent);
 
   }
 
@@ -122,6 +128,7 @@ public class LXStudioApp extends PApplet implements LXPlugin {
     // Here is where you may modify the initial settings of the UI before it is fully
     // built. Note that this will not be called in headless mode. Anything required
     // for headless mode should go in the raw initialize method above.
+
   }
 
   public static class UIMyComponent extends UICollapsibleSection {
@@ -137,8 +144,19 @@ public class LXStudioApp extends PApplet implements LXPlugin {
   public void onUIReady(LXStudio lx, LXStudio.UI ui) {
     // At this point, the LX Studio application UI has been built. You may now add
     // additional views and components to the UI hierarchy.
-    new UIMyComponent(ui, this.myComponent)
-    .addToContainer(ui.leftPane.global);
+    //new UIMyComponent(ui, this.myComponent)
+    //.addToContainer(ui.leftPane.global);
+
+    lx.structure.addFixture(new JsonFixture(lx, "XmasTreeTest"));
+
+    StarpusherOutput output = new StarpusherOutput(lx, lx.getModel());
+    try {
+      output.setAddress(InetAddress.getByName("10.1.1.2"));
+    } catch (UnknownHostException exception) {
+      LX.error(exception);
+    }
+    output.setPort(6868);
+    lx.addOutput(output);
   }
 
   @Override
