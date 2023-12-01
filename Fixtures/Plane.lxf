@@ -1,0 +1,49 @@
+{
+    "label": "Plane",
+    "tags": ["plane"],
+    "components": [
+        {
+            "type": "strip",
+            "x": 0,
+            "y": 0,
+            "z": 0,
+            "numPoints": 100,
+            "spacing": 1,
+            "direction": {"x": 1, "y": -1, "z": 0.5}
+         },
+         {
+            "type": "strip",
+            "x": 0,
+            "y": 5,
+            "z": 0,
+            "numPoints": 100,
+            "spacing": 1,
+            "direction": {"x": 1, "y": -1, "z": 0.5}
+         },
+         {
+            "type": "strip",
+            "x": 0,
+            "y": 10,
+            "z": 0,
+            "numPoints": 100,
+            "spacing": 1,
+            "direction": {"x": 1, "y": -1, "z": 0.5}
+         },{
+            "type": "strip",
+            "x": 0,
+            "y": 15,
+            "z": 0,
+            "numPoints": 100,
+            "spacing": 1,
+            "direction": {"x": 1, "y": -1, "z": 0.5}
+         },{
+            "type": "strip",
+            "x": 0,
+            "y": 20,
+            "z": 0,
+            "numPoints": 100,
+            "spacing": 1,
+            "direction": {"x": 1, "y": -1, "z": 0.5}
+         }
+    ]
+}

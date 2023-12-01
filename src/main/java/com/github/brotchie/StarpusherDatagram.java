@@ -8,7 +8,8 @@ import java.nio.ByteBuffer;
 
 class StarpusherDatagram extends LXDatagram {
     /** Gamma correction factor to make WS2811 LEDs look good across their range. */
-    private static final double WS2811_GAMMA_CORRECTION = 2.8;
+    //private static final double WS2811_GAMMA_CORRECTION = 2.8;
+    private static final double WS2811_GAMMA_CORRECTION = 1.8;
 
     /** Size of the Starpusher LED update packet preamble. */
     private static final int PREAMBLE_SIZE = 7;
