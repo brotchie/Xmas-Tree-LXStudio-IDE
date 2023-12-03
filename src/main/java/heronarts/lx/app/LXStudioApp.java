@@ -24,6 +24,7 @@ import java.net.UnknownHostException;
 
 import com.github.brotchie.StarpusherOutputGroup;
 import com.github.brotchie.effect.InstantSparkleEffect;
+import com.github.brotchie.pattern.FirePattern;
 import com.github.brotchie.pattern.SnowPattern;
 import com.github.brotchie.pattern.TreeRingPattern;
 import heronarts.lx.LX;
@@ -176,6 +177,7 @@ public class LXStudioApp extends PApplet implements LXPlugin {
         lx.registry.addEffect(InstantSparkleEffect.class);
         lx.registry.addPattern(TreeRingPattern.class);
         lx.registry.addPattern(SnowPattern.class);
+        lx.registry.addPattern(FirePattern.class);
 
         lx.addProjectListener((file, change) -> {
             if (change == LX.ProjectListener.Change.NEW) {
